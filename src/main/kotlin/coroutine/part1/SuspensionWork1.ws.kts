@@ -41,7 +41,7 @@ suspend fun suspendedWithThreadSleep() {
             Thread.sleep(1000)
             continuation.resume(Unit)
             println("Resumed")
-            }
+        }
     }
     println("After")
 }
@@ -87,8 +87,8 @@ suspend fun delay(time: Long): Unit =
     suspendCoroutine { cont ->
         executor.schedule({
             cont.resume(Unit)
-            }, time, TimeUnit.MILLISECONDS)
-        }
+        }, time, TimeUnit.MILLISECONDS)
+    }
 suspend fun suspendedWithDelay() {
     println("Before")
     delay(1000)
